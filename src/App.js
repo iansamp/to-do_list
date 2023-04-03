@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 import { CiSquareRemove } from "react-icons/ci";
 import { useState } from 'react';
+import { Box, H2, Header } from './components/styles/styled';
 
 
 export default function App() {
@@ -20,25 +21,33 @@ export default function App() {
 
     setList([...list, newTask]);
     setTask('');
-  }
+  };
 
   const removeTask = (id) => {
     const newList = list.filter(task => task.id !== id);
     setList(newList);
-  }
+  };
+
+  const toggleChecked = (id, checked) => {
+    console.log(id, checked)
+    const index = list.findIndex(task => task.id === id);
+    const newList = list
+    newList[index].checked = !checked;
+    setList([...newList]);
+  };
 
   return (
-    <header className={styles.header}>
-      <main className={styles.content}>
+    <Header>
+      <main className="content">
         <section>
           <div>
             <h1>Tarefas do dia</h1>
-            <p className={styles.descption}>Anote suas tarefas para não esquecer!</p>
+            <p className="descption">Anote suas tarefas para não esquecer!</p>
           </div>
 
-          <div className={styles.form}>
+          <div className='form'>
             <form>
-              <div className={styles.formControl}>
+              <div className='formControl'>
                 <label htmlFor='title'>Qual a sua tarefa?</label>
                 <input
                 value={task} 
@@ -47,29 +56,29 @@ export default function App() {
                 placeholder='Digite aqui...'
                 onChange={(e) => setTask(e.target.value)}
                 />
-                <input onClick={addTask} className={styles.send} type='submit' value="Criar tarefa"/>
+                <input onClick={addTask} className='send' type='submit' value="Criar tarefa"/>
               </div>
             </form>
           </div>
 
           <div>
             {list.map((task) => (
-              <div className={styles.box}>
-              <h2 id='task' className={styles.actvive}>{task.task}</h2>
+              <Box>
+              <H2 checked={task.checked}>{task.task}</H2>
               <input
               id='check' 
               key={task.id} 
-              type='checkbox' 
-              className='checkbox-regularC'
+              type='checkbox'
+              onClick={() => toggleChecked(task.id, task.checked)}
               />
               <label>Concluído!</label><br/><br/>
               <button onClick={() => removeTask(task.id)}><CiSquareRemove/></button>
-              </div>
+              </Box>
             ))}
           </div>
         </section>
       </main>
-    </header>
+    </Header>
   );
 }
 

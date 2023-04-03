@@ -1,11 +1,8 @@
-import styles from './App.module.css';
 import { CiSquareRemove } from "react-icons/ci";
 import { useState } from 'react';
 import { Box, H2, Header } from './components/styles/styled';
 
-
 export default function App() {
-
 
   const [task, setTask] = useState("")
   const [list, setList] = useState([]);

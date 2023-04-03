@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap');
 /*  */
 
 .header{
@@ -8,7 +9,7 @@
     text-align: center;
     background-color: #161616;
     width: 500px;
-    height: 500px;
+    max-height: 500vh;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -28,22 +29,48 @@ h1{
     
 }
 
-.line{
+/* ----------FORM---------- */
+
+.form{
     border-bottom: 1px solid #ffffff;
-    padding: 30px 100px;
+    padding: 10px 100px;
     display: flex;
     flex-direction: column;
 }
 
-button{
-    border: none;
-    background: #fff;
-    cursor: pointer;
+label{
+    color: #fff;
+    padding: 3px;
     font-family: 'Kanit', sans-serif;
-    font-weight: bold;
-    padding: 1px 5px;
-    margin-top: 5px;
 }
+
+.formControl{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 1em;
+}
+
+.formControl label{
+    font-size: 1.1em;
+}
+
+.formControl input{
+    border: 1px solid #222;
+    border-radius: 2px;
+    background-color: #2c3035;
+    padding: 0.5em;
+    color: #dfdfdf;
+    font-family: 'Kanit', sans-serif;
+}
+
+.formControl .send{
+    margin-top: 0.5em;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* ----------TO-DO---------- */
 
 .box{
     border-bottom: 1px solid #ffffff;
@@ -62,6 +89,13 @@ button{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+/* .box .actvive{
+    color: rgb(0, 255, 0);
+    text-decoration: line-through;
+    font-style: italic;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+ */
 .box label{
     color: #fff;
     font-family: 'Kanit', sans-serif;
@@ -70,3 +104,11 @@ button{
 .box input{
     cursor: pointer;
 }
+
+.box p{
+    color: #fff;
+    font-family: 'Kanit', sans-serif;
+}
+ .box button{
+    cursor: pointer;
+ }

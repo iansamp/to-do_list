@@ -4,7 +4,9 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 97.6vh;
+  max-height: 1000vh;
+  min-height: 97.6vh;
   display: flex;
   justify-content: center;
+  color: #fff;
 }
